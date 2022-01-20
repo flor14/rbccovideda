@@ -1,6 +1,4 @@
-show_summary_stat <- function(df, startDate, endDate) {
-
-#' Shows summary statistics for the Covid19 cases in BC stored in the specified dataframe,
+#' Show summary statistics for the Covid19 cases in BC stored in the specified dataframe,
 #'   for the period specified by startDate and endDate (format: YYYY-MM-DD).
 #'
 #' @param df:data.frame The dataframe donwloaded from BC CDC dataset with the columns:
@@ -16,10 +14,10 @@ show_summary_stat <- function(df, startDate, endDate) {
 #' @export
 #'
 #' @examples
-#' df <- data.frame(Reported_Date=c("2022-01-01", "2022-01-01"), HA=c("Vancouver Coastal", "Vancouver Coastal"),
-#'   Sex=c("F", "M"), Age_Group=c("50-59", "50-59"), Classification_Report=c("Lab-diagnosed","Lab-diagnosed"))
+#' df <- get_data()
 #' show_summary_stat(df, "2022-01-01", "2022-01-13")
 #' 
-#' 
+show_summary_stat <- function(df, startDate, endDate) {
+  
 }
 
