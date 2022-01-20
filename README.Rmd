@@ -67,9 +67,9 @@ devtools::install_github("UBC-MDS/rbccovideda")
 ## basic example code
 ```
 
-## **Role within Python Ecosystem**
+## **Role within R Ecosystem**
 
-(To modify to match R ecosystem)
+Given the relatively adequate accessibility of latest aggregate COVID-19 data combined with its persistent impact on socio-economics since early 2020, there are some 40 related packages found in CRAN at time as of January 2022. Examples of API wrapper packages that retrieve COVID-19 data include [canadacovid](https://github.com/taylordunn/canadacovid) and [covidregionaldata](https://github.com/epiforecasts/covidregionaldata/), while others provide functions to retrieve data, display summary statistics and generate plots, such as [nCov2019](https://github.com/YuLab-SMU/nCov2019) and [covid19.analytic](https://github.com/mponce0/covid19.analytic). In contrast to these existing packages, `rbccovideda` provides a simple user interface that focuses on the localized provincial context of British Columbia, utilizing features specific to BCCDC's data administration conventions for generating a quick overview and on-demand analysis of trends and statistics pertaining to age-related and regional case characteristics.
 
 ## Dependencies
 
