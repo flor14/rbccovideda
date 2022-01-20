@@ -6,11 +6,34 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of rbccovideda is to …
+**Milestone1 Link**: <https://github.com/UBC-MDS/rbccovideda>
+
+**Authors**: Lianna Hovhannisyan, John Lee, Vadim Taskaev, Vanessa Yuen
+
+The British Columbia Center for Disease Control (BCCDC) manages a range
+of provincial programs and clinics that contribute to public health and
+help control the spread of disease in BC. It administers and distributes
+the latest daily data on COVID-19 in British Columbia, which it provides
+in csv format along case-, lab- and regional-specific features as well
+as in comprehensive ArcGIS format via the [COVID-19
+webpage](http://www.bccdc.ca/health-info/diseases-conditions/covid-19/data)
+(under “Download the data”). This package leverages daily case-specific
+COVID-19 data, allowing users to conveniently download the latest case
+data, and - per specified date range interval - compute several key
+statistics, visualize time series progression along age-related and
+regional parameters, and generate exploratory data analysis in the form
+of histogram figures supporting on-demand analysis. COVID-19 case detail
+parameters extracted using this package:
+
+-   Reported_Date (in YYYY-MM-DD format)
+-   HA (provincial health region, e.g., “Vancouver Coast Health”)
+-   Sex (M or F)
+-   Age_Group (reported along 10-yr age group bins, e.g., “60-69”)
+-   Classification_Reported (diagnosis origin, e.g., “Lab-diagnosed”)
 
 ## Installation
 
-You can install the development version of rbccovideda from
+You can install the development version of `rbccovideda` from
 [GitHub](https://github.com/) with:
 
 ``` r
@@ -18,38 +41,71 @@ You can install the development version of rbccovideda from
 devtools::install_github("UBC-MDS/rbccovideda")
 ```
 
-## Example
+## Package Functions
 
-This is a basic example which shows you how to solve a common problem:
+-   `get_data()`
+
+    -   This function downloads the latest detailed daily case-specific
+        COVID-19 from BCCDC’s dedicated [COVID-19
+        homepage](http://www.bccdc.ca/health-info/diseases-conditions/covid-19/data).
+        It returns a dataframe containing the extracted raw data.
+
+-   `show_summary_stat()`
+
+    -   This function computes summary statistics from the available
+        case-specific parameters, such as age-related and regional
+        aggregate metrics. It returns a dataframe listing key identified
+        summary statistics specified per the time interval queried.
+
+-   `plot_line_by_date()`
+
+    -   This function returns a line chart plot of daily case counts,
+        based on parameters and grouping selected by the user, per the
+        time interval queried.
+
+-   `plot_hist_by_cond()`
+
+    -   This function returns a histogram plot based on parameters and
+        grouping selected by the user, per the time interval queried,
+        allowing for on-demand exploratory data analysis.
+
+## Usage
+
+(To do)
 
 ``` r
-library(rbccovideda)
+#library(rbccovideda)
 ## basic example code
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+## **Role within Python Ecosystem**
 
-``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
-```
+(To modify to match R ecosystem)
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this. You could also
-use GitHub Actions to re-render `README.Rmd` every time you push. An
-example workflow can be found here:
-<https://github.com/r-lib/actions/tree/v1/examples>.
+## Dependencies
 
-You can also embed plots, for example:
+## Contributing
 
-<img src="man/figures/README-pressure-1.png" width="100%" />
+Interested in contributing? Check out the contributing guidelines.
+Please note that this project is released with a Code of Conduct. By
+contributing to this project, you agree to abide by its terms.
 
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
+## Contributors
+
+Group 25 Contributors:
+
+-   Lianna Hovhannisyan: @liannah
+-   John Lee: @max780228
+-   Vadim Taskaev: @vtaskaev1
+-   Vanessa Yuen: @imtvwy
+
+## License
+
+The `rbccovideda` project was created by DSCI 524 (Collaborative
+Software Development) Group 25 within the Master of Data Science program
+at the University of British Columbia (2021-2022). It is licensed under
+the terms of the MIT license.
+
+## Credits
+
+[R Packages](https://r-pkgs.org/), DSCI 524 Course Material (UBC MDS)
