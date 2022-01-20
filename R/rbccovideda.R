@@ -15,7 +15,7 @@
 #' get_data()
 #' get_data(url = "http://www.bccdc.ca/Health-Info-Site/Documents/
 #'   BCCDC_COVID19_Dashboard_Case_Details.csv", out = "data/raw")
-getData <- function() {}
+get_data <- function() {}
 
 #' Title
 #'
@@ -23,7 +23,7 @@ getData <- function() {}
 #' @export
 #'
 #' @examples
-showSummaryStat <- function() {}
+show_summaryStat <- function() {}
 
 #' Title
 #'
@@ -31,7 +31,7 @@ showSummaryStat <- function() {}
 #' @export
 #'
 #' @examples
-plotLineByDate <- function() {}
+plot_line_by_date <- function() {}
 
 #' Title
 #'
@@ -39,4 +39,4 @@ plotLineByDate <- function() {}
 #' @export
 #'
 #' @examples
-plotHistByCond <- function() {}
+plot_hist_by_cond <- function() {}
