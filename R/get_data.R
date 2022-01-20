@@ -16,27 +16,3 @@
 #' get_data(url = "http://www.bccdc.ca/Health-Info-Site/Documents/
 #'   BCCDC_COVID19_Dashboard_Case_Details.csv", out = "data/raw")
 get_data <- function() {}
-
-#' Title
-#'
-#' @return
-#' @export
-#'
-#' @examples
-show_summaryStat <- function() {}
-
-#' Title
-#'
-#' @return
-#' @export
-#'
-#' @examples
-plot_line_by_date <- function() {}
-
-#' Title
-#'
-#' @return
-#' @export
-#'
-#' @examples
-plot_hist_by_cond <- function() {}
