@@ -1,9 +1,20 @@
-#' Title
+#' Downloads detailed COVID-19 case data from default BCCDC webpage URL
+#'   (passed in as string) as a .csv file to default relative path directory
+#'   (also passed in as string).
 #'
-#' @return
+#' @param url string A webpage from which .csv file is downloaded to relative
+#'   data folder directory, provided wit ha default value.
+#'
+#' @param out_folder string A relative path directory comprising two folder
+#'   separated by a forward slash ("/"), provided with a default value.
+#'
+#' @return A data.frame containing downloaded detailed case data.
 #' @export
 #'
 #' @examples
+#' get_data()
+#' get_data(url = "http://www.bccdc.ca/Health-Info-Site/Documents/
+#'   BCCDC_COVID19_Dashboard_Case_Details.csv", out = "data/raw")
 getData <- function() {}
 
 #' Title
