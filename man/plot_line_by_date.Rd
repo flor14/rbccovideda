@@ -24,6 +24,6 @@ startDate and endDate (format: YYYY-MM-DD). The default argument value
 for region is 'all', showing the total number of Covid19 cases in BC.
 }
 \examples{
-plotLineByDate("2021-01-01", "2021-12-31")
-plotLineByDate("2021-01-01", "2021-12-31", region = c('Fraser'))
+plot_line_by_date("2021-01-01", "2021-12-31")
+plot_line_by_date("2021-01-01", "2021-12-31", region = c('Fraser'))
 }

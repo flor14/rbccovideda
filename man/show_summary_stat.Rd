@@ -7,9 +7,9 @@
 show_summary_stat(startDate, endDate)
 }
 \arguments{
-\item{startDate:string}{The start date of the period (no earlier than '2020-01-29').}
+\item{startDate}{string  The start date of the period (no earlier than '2020-01-29').}
 
-\item{endDate:string}{The end date of the period (no later than today).}
+\item{endDate}{string The end date of the period (no later than today).}
 }
 \value{
 pandas.DataFrame containing summary statistics with the following columns:

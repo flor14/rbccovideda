@@ -11,8 +11,8 @@
 #' @export
 #'
 #' @examples
-#' bccovideda.plotHistByCond("2021-01-01", "2021-12-31", "Age")
-#' bccovideda.plotHistByCond("2021-01-01", "2021-12-31", "Region")
+#' plot_hist_by_cond("2021-01-01", "2021-12-31", "Age")
+#' plot_hist_by_cond("2021-01-01", "2021-12-31", "Region")
 plot_hist_by_cond <- function(startDate, endDate, condition) {
 
 }

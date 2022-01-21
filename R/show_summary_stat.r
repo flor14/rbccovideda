@@ -3,8 +3,8 @@
 #' Show summary statistics for the Covid19 cases in BC
 #'   for the period specified by startDate and endDate (format: YYYY-MM-DD).
 #'
-#' @param startDate:string  The start date of the period (no earlier than '2020-01-29').
-#' @param endDate:string The end date of the period (no later than today).
+#' @param startDate string  The start date of the period (no earlier than '2020-01-29').
+#' @param endDate string The end date of the period (no later than today).
 #'
 #' @return pandas.DataFrame containing summary statistics with the following columns:
 #'   total_cases_count, latest_date, latest_daily_cases_count,
