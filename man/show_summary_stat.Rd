@@ -2,32 +2,27 @@
 % Please edit documentation in R/show_summary_stat.r
 \name{show_summary_stat}
 \alias{show_summary_stat}
-\title{Show summary statistics for the Covid19 cases in BC stored in the specified dataframe,
-for the period specified by startDate and endDate (format: YYYY-MM-DD).}
+\title{Show summary statistics of BC covid data}
 \usage{
-show_summary_stat(df, startDate, endDate)
+show_summary_stat(startDate, endDate)
 }
 \arguments{
-\item{df:data.frame}{The dataframe donwloaded from BC CDC dataset with the columns:
-"Reported_Date","HA","Sex","Age_Group","Classification_Reported".}
-
 \item{startDate:string}{The start date of the period (no earlier than '2020-01-29').}
 
 \item{endDate:string}{The end date of the period (no later than today).}
 }
 \value{
-dataframe  A data frame containing summary statistics with the following columns:
+pandas.DataFrame containing summary statistics with the following columns:
 total_cases_count, latest_date, latest_daily_cases_count,
 max_date, max_daily_cases_count, min_date, min_daily_cases_count,
 max_age_group, max_age_group_count, min_age_group, min_age_group_count,
 max_region, max_region_count, min_region, min_region_count
 }
 \description{
-Show summary statistics for the Covid19 cases in BC stored in the specified dataframe,
+Show summary statistics for the Covid19 cases in BC
 for the period specified by startDate and endDate (format: YYYY-MM-DD).
 }
 \examples{
-df <- get_data()
-show_summary_stat(df, "2022-01-01", "2022-01-13")
+show_summary_stat("2022-01-01", "2022-01-13")
 
 }
