@@ -2,9 +2,7 @@
 % Please edit documentation in R/plot_line_by_date.R
 \name{plot_line_by_date}
 \alias{plot_line_by_date}
-\title{Plots the line chart of regional Covid19 cases over the period specified by
-startDate and endDate (format: YYYY-MM-DD). The default argument value
-for region is 'all', showing the total number of Covid19 cases in BC.}
+\title{Line plot of Covid19 cases}
 \usage{
 plot_line_by_date(startDate, endDate, region = "all")
 }
