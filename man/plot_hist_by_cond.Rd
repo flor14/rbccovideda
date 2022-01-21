@@ -22,6 +22,6 @@ Plots the number of Covid19 cases with respect to the condition(per Age Group
 or Region) using histogram for the period specified by startDate and endDate
 }
 \examples{
-bccovideda.plotHistByCond("2021-01-01", "2021-12-31", "Age")
-bccovideda.plotHistByCond("2021-01-01", "2021-12-31", "Region")
+plot_hist_by_cond("2021-01-01", "2021-12-31", "Age")
+plot_hist_by_cond("2021-01-01", "2021-12-31", "Region")
 }
