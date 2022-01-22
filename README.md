@@ -69,14 +69,8 @@ devtools::install_github("UBC-MDS/rbccovideda")
 
 ## Usage
 
-(To do)
 
-``` r
-#library(rbccovideda)
-## basic example code
-```
-
-## **Role within R Ecosystem**
+## Role within R Ecosystem
 
 Given the relatively adequate accessibility of latest aggregate COVID-19
 data combined with its persistent impact on socio-economics since early
