@@ -6,8 +6,6 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-**Milestone1 Link**: <https://github.com/UBC-MDS/rbccovideda>
-
 **Authors**: Lianna Hovhannisyan, John Lee, Vadim Taskaev, Vanessa Yuen
 
 The British Columbia Center for Disease Control (BCCDC) manages a range
@@ -97,8 +95,6 @@ British Columbia, utilizing features specific to BCCDC’s data
 administration conventions for generating a quick overview and on-demand
 analysis of trends and statistics pertaining to age-related and regional
 case characteristics.
-
-## Dependencies
 
 ## Contributing
 
