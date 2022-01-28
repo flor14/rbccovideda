@@ -50,7 +50,7 @@ plot_line_by_date <- function(startDate, endDate, region='all') {
      stop("'endDate' cannot be earlier than the 'startDate'.")
    }
    if (length(region) == 1 &
-       !(region[1] == 'all' || (region %in% unique(covid$HA)))) {
+       !(region[1] == 'all' || (all(region %in% unique(covid$HA))))) {
      stop("'region' must be valid BC region - Either combination of `Fraser, Vancouver Coastal, Vancouver Island, Interior, Northern, Out of Canada` or `all`")
    }
 
