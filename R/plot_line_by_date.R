@@ -18,22 +18,64 @@
 #' plot_line_by_date("2021-01-01", "2021-12-31", region = c('Fraser'))
 plot_line_by_date <- function(startDate, endDate, region='all') {
 
-   # get the data TODO
-   df <- read.csv(url("http://www.bccdc.ca/Health-Info-Site/Documents/BCCDC_COVID19_Dashboard_Case_Details.csv"))
+   # get the data
+   covid <- rbccovideda::get_data()
 
-   # Change the format to Date TODO
-   df$Reported_Date <- as.Date(df$Reported_Date, "%Y-%m-%d")
+   # check date format
+   if (is.na(as.Date(startDate, "%Y-%m-%d")) || is.na(as.Date(endDate, "%Y-%m-%d"))){
+     stop("Incorrect date format, should be YYYY-MM-DD")
+   }
+
+   # check input type
+   if (!is.character(startDate)) {
+     stop("'startDate' should be character.")
+   }
+   if (!is.character(endDate)) {
+     stop("'endDate' should be character.")
+   }
+   if (!is.character(region)) {
+     stop("'region' should be character vector.")
+   }
+
+   # check argument values
+   if (endDate > max(covid$Reported_Date)) {
+     stop("'endDate' cannot be later than the day the package is called.")
+   }
+
+   if (startDate < covid$Reported_Date[1]) {
+     stop("'startDate' cannot be earlier than the day the first case was recorded.")
+   }
+
+   if (startDate > endDate) {
+     stop("'endDate' cannot be earlier than the 'startDate'.")
+   }
+   if (length(region) == 1 &
+       !(region[1] == 'all' || (region %in% unique(covid$HA)))) {
+     stop("'region' must be valid BC region - Either combination of `Fraser, Vancouver Coastal, Vancouver Island, Interior, Northern, Out of Canada` or `all`")
+   }
+
+   if (length(region) != 1 & !(all(region %in% unique(covid$HA)))) {
+     stop("'region' must be valid BC region - Either combination of `Fraser, Vancouver Coastal, Vancouver Island, Interior, Northern, Out of Canada` or `all`")
+   }
+
+   if (length(region) < 1) {
+     stop("region cannot be an empty list")
+   }
+
+
+   # Change the format to Date
+   covid$Reported_Date <- as.Date(covid$Reported_Date, "%Y-%m-%d")
 
    # filter the data
    if (length(region) == 1 & region[1] == "all") {
-     mask <- df |>
-       dplyr::filter(Reported_Date >= "2021-01-01"
-                     & Reported_Date <= "2021-12-31")
+     mask <- covid |>
+       dplyr::filter(Reported_Date >= "2021-01-01" &
+                     Reported_Date <= "2021-12-31")
    } else {
-     mask <- df |>
+     mask <- covid |>
        dplyr::filter(HA %in% region &
-                       Reported_Date >= "2020-01-01"
-                     & Reported_Date < "2021-12-30")
+                       Reported_Date >= "2020-01-01" &
+                       Reported_Date < "2021-12-30")
    }
 
    # keep the filtered data
