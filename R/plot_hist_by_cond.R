@@ -32,17 +32,17 @@ plot_hist_by_cond <- function(startDate, endDate, condition) {
   if (condition %!in% c("Age", "Region")) {
     stop("'condition' should be either 'Age' or 'Region'.")
   }
-  if (ymd(startDate) >= ymd(endDate)) {
+  if (lubridate::ymd(startDate) >= lubridate::ymd(endDate)) {
     stop("startDate should not be later than endDate")
   }
-  if (ymd(startDate) < ymd("2020-01-29")) {
+  if (lubridate::ymd(startDate) < lubridate::ymd("2020-01-29")) {
     stop("startDate should not be earlier than '2020-01-29'")
   }
 
   covid <- get_data()
 
   temp <- covid |>
-    subset(Reported_Date >= ymd(startDate) & Reported_Date <= ymd(endDate))
+    subset(Reported_Date >= lubridate::ymd(startDate) & Reported_Date <= lubridate::ymd(endDate))
 
   age_order <- c(
     "90+", "80-89", "70-79", "60-69", "50-59", "40-49",
