@@ -18,9 +18,6 @@
 #' plot_line_by_date("2021-01-01", "2021-12-31", region = c('Fraser'))
 plot_line_by_date <- function(startDate, endDate, region='all') {
 
-   # Specify the figure height and width
-   options(repr.plot.width=15, repr.plot.height=4)
-
    # get the data TODO
    df <- read.csv(url("http://www.bccdc.ca/Health-Info-Site/Documents/BCCDC_COVID19_Dashboard_Case_Details.csv"))
 
@@ -28,13 +25,13 @@ plot_line_by_date <- function(startDate, endDate, region='all') {
    df$Reported_Date <- as.Date(df$Reported_Date, "%Y-%m-%d")
 
    # filter the data
-   if (region == 'all') {
+   if (typeof(region) == "character" & region == "all") {
      mask <- df |>
        dplyr::filter(Reported_Date >= "2021-01-01"
                      & Reported_Date <= "2021-12-31")
    } else {
      mask <- df |>
-       dplyr::filter(HA == region &
+       dplyr::filter(HA %in% region &
                        Reported_Date >= "2020-01-01"
                      & Reported_Date < "2021-12-30")
    }
