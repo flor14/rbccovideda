@@ -16,4 +16,47 @@
 #' @examples
 #' plot_line_by_date("2021-01-01", "2021-12-31")
 #' plot_line_by_date("2021-01-01", "2021-12-31", region = c('Fraser'))
-plot_line_by_date <- function(startDate, endDate, region='all') {}
+plot_line_by_date <- function(startDate, endDate, region='all') {
+
+   # Specify the figure height and width
+   options(repr.plot.width=15, repr.plot.height=4)
+
+   # get the data TODO
+   df <- read.csv(url("http://www.bccdc.ca/Health-Info-Site/Documents/BCCDC_COVID19_Dashboard_Case_Details.csv"))
+
+   # Change the format to Date TODO
+   df$Reported_Date <- as.Date(df$Reported_Date, "%Y-%m-%d")
+
+   # filter the data
+   if (region == 'all') {
+     mask <- df |>
+       dplyr::filter(Reported_Date >= "2021-01-01"
+                     & Reported_Date <= "2021-12-31")
+   } else {
+     mask <- df |>
+       dplyr::filter(HA == region &
+                       Reported_Date >= "2020-01-01"
+                     & Reported_Date < "2021-12-30")
+   }
+
+   # keep the filtered data
+   plot_data <- mask
+
+   # get the minimum and max date for scaling
+   min <- plot_data$Reported_Date[1]
+   max <- max(plot_data$Reported_Date)
+
+   # Generate the line plots
+   line_plot <- ggplot2::ggplot(plot_data,
+                                ggplot2::aes(x = Reported_Date,
+                                             color = HA)) +
+     ggplot2::geom_line(stat = 'count') +
+     ggplot2::scale_x_date(limits = c(min, max), labels = scales::date_format('%Y-%m-%d')) +
+     ggplot2::labs(x = "Date",
+                   y = "Number of Cases",
+                   color = "Region",
+                   title = "Number of COVID19 cases over time")
+
+   return(line_plot)
+}
+
