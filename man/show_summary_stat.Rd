@@ -24,5 +24,4 @@ for the period specified by startDate and endDate (format: YYYY-MM-DD).
 }
 \examples{
 show_summary_stat("2022-01-01", "2022-01-13")
-
 }
