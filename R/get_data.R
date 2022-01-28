@@ -38,7 +38,9 @@ get_data <- function(
   dir.create(here::here(out_folder))
   out_path <- here::here(out_folder, "case_data.csv")
   downloader::download(url, out_path, mode = "wb")
-  cases_df <- readr::read_csv(here::here(out_folder, "case_data.csv"))
+  cases_df <- readr::read_csv(
+    here::here(out_folder, "case_data.csv"),
+    show_col_types = FALSE)
 
   unlink(here::here(out_folder), recursive = TRUE)
 
