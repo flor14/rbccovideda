@@ -1,4 +1,4 @@
-#library(testthat)
+library(testthat)
 library(rbccovideda)
 
-#testthat::test_check("rbccovideda")
+test_check("rbccovideda")
