@@ -6,18 +6,16 @@ Authors@R:
     person("John", "Lee", , "john@gmail.com", role = c("aut", "cre"))
     person("Vadim", "Taskaev", , "vadim@gmail.com", role = c("aut", "cre"))
     person("Vanessa", "Yuen", , "vanessa@gmail.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+Description: Convenience functions to make the COVID19 Data analysis for British Columbia, CA region.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
 Imports: 
-    downloader,
     here,
-    RCurl,
     readr,
-    sjmisc
+    tidyverse
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3

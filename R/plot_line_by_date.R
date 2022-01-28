@@ -6,7 +6,7 @@
 #'
 #' @param startDate string the start date of the period (no earlier than '2020-01-29')
 #' @param endDate string the end date of the period (no later than today)
-#' @param region vector or string = 'all' Default value is string 'all' - displaying all regions.
+#' @param region vector of characters. Default value is character 'all' - displaying all regions.
 #' Other available values: combination of list of strings from available regions -
 #' Fraser, Vancouver Coastal, Vancouver Island, Interior, Northern, Out of Canada
 #'
