@@ -25,7 +25,7 @@ plot_line_by_date <- function(startDate, endDate, region='all') {
    df$Reported_Date <- as.Date(df$Reported_Date, "%Y-%m-%d")
 
    # filter the data
-   if (typeof(region) == "character" & region == "all") {
+   if (length(region) == 1 & region[1] == "all") {
      mask <- df |>
        dplyr::filter(Reported_Date >= "2021-01-01"
                      & Reported_Date <= "2021-12-31")
