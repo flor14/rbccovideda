@@ -1,6 +1,3 @@
-library(tidyverse)
-library(here)
-
 #' Show summary statistics of BC covid data
 #'
 #' Show summary statistics for the Covid19 cases in BC
@@ -39,14 +36,12 @@ show_summary_stat <- function(startDate, endDate) {
     stop("startDate should not be later than endDate")
   if(start_date < earliest_date)
     stop("startDate should not be earlier than 2020-01-29")
-  if(end_date > today())
+  if(end_date > lubridate::today())
     stop("endDate should not be later than today")
 
 
-  ## TODO
-  df <- get_data()
 
-  df <- read.csv(here("R", "case_data_sample.csv"))
+  df <- get_data()
 
 
   # total_cases_count
