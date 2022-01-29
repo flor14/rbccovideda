@@ -1,17 +1,15 @@
-library(testthat)
-
 # test input validation error
-test_that("Wrong type of input parameter should throw an error",{
+testthat::test_that("Wrong type of input parameter should throw an error",{
   expect_error(show_summary_stat(1, "2022-01-01"))
   expect_error(show_summary_stat("2022-01-01", 1))
 })
 
-test_that("Invalid date format should throw an error",{
+testthat::test_that("Invalid date format should throw an error",{
   expect_error(show_summary_stat("20200220", "2022-01-01"))
   expect_error(show_summary_stat("2022-01-01", "20200220"))
 })
 
-test_that("Invalid startDate and endDate range should throw an error",{
+testthat::test_that("Invalid startDate and endDate range should throw an error",{
   expect_error(show_summary_stat("2022-02-20", "2021-01-01"))
   expect_error(show_summary_stat("2000-01-01", "2022-01-01"))
   expect_error(show_summary_stat("2000-01-01", "2047-01-01"))
@@ -19,7 +17,7 @@ test_that("Invalid startDate and endDate range should throw an error",{
 
 # test expected return value
 df <- show_summary_stat("2020-02-20", "2022-01-01")
-test_that("Return type should be a S3 class tibble", {
+testthat::test_that("Return type should be a S3 class tibble", {
   expect_s3_class(df, "tbl_df")
 })
 
@@ -30,7 +28,7 @@ summary_cols <- c(
   "max_region", "max_region_count", "min_region", "min_region_count"
 )
 
-test_that("Number of columns should be 15", {
+testthat::test_that("Number of columns should be 15", {
   expect_equal(ncol(df), length(summary_cols))
 })
 

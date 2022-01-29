@@ -55,24 +55,24 @@ plot_hist_by_cond <- function(startDate, endDate, condition) {
 
   if (condition == "Age") {
     plot <- temp |>
-      ggplot() +
-      aes(y = factor(Age_Group, level = rev(age_order))) +
-      geom_bar(stat = 'count') +
-      ggtitle("Number of Cases by Age Group") +
-      labs(x = "Number of Cases",
+      ggplot2::ggplot() +
+      ggplot2::aes(y = factor(Age_Group, level = rev(age_order))) +
+      ggplot2::geom_bar(stat = 'count') +
+      ggplot2::ggtitle("Number of Cases by Age Group") +
+      ggplot2::labs(x = "Number of Cases",
            y = "Age Group") +
-      theme(text =  element_text(size = 20))
+      ggplot2::theme(text = ggplot2::element_text(size = 20))
   }
 
   if (condition == "Region") {
     plot <- temp |>
-      ggplot() +
-      aes(y = factor(HA, level = rev(region_order))) +
-      geom_bar(stat = 'count') +
-      ggtitle("Number of Cases by Region") +
-      labs(x = "Number of Cases",
+      ggplot2::ggplot() +
+      ggplot2::aes(y = factor(HA, level = rev(region_order))) +
+      ggplot2::geom_bar(stat = 'count') +
+      ggplot2::ggtitle("Number of Cases by Region") +
+      ggplot2::labs(x = "Number of Cases",
            y = "Region") +
-      theme(text =  element_text(size = 20))
+      ggplot2::theme(text = ggplot2::element_text(size = 20))
   }
 
   return(plot)
