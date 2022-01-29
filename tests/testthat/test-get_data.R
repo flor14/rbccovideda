@@ -1,6 +1,6 @@
 sample_df <- readr::read_csv(
-    here::here("tests", "case_data_sample.csv"),
-    show_col_types = FALSE)
+  "../case_data_sample.csv",
+  show_col_types = FALSE)
 
 actual_df <- get_data()
 

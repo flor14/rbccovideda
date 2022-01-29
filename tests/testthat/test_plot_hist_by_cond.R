@@ -1,41 +1,39 @@
-library(testthat)
-
 #' Check if errors are raised when incorrect inputs are used
 
-test_that("Arguments need to be wrapped by quotation marks", {
+testthat::test_that("Arguments need to be wrapped by quotation marks", {
   expect_error(plot_hist_by_cond(2021-01-01, 2021-12-31, Age))
 })
 
-test_that("condition need to be wrapped by quotation marks", {
+testthat::test_that("condition need to be wrapped by quotation marks", {
   expect_error(plot_hist_by_cond("2021-01-01", "2021-12-31", Region))
 })
 
-test_that("dates need to be wrapped by quotation marks", {
+testthat::test_that("dates need to be wrapped by quotation marks", {
   expect_error(plot_hist_by_cond(2021-01-01, 2021-12-31, "Age"))
 })
 
-test_that("dates need to be wrapped by quotation marks", {
+testthat::test_that("dates need to be wrapped by quotation marks", {
   expect_error(plot_hist_by_cond("2021-01-01", 2021-12-31, "Region"))
 })
 
-test_that("The first letter of condition should be capitalized", {
+testthat::test_that("The first letter of condition should be capitalized", {
   expect_error(plot_hist_by_cond("2021-01-01", "2021-12-31", "age"))
 })
 
-test_that("The first letter of condition should be capitalized", {
+testthat::test_that("The first letter of condition should be capitalized", {
   expect_error(plot_hist_by_cond("2021-01-01", "2021-12-31", "region"))
 })
 
 #' Check if the correct plot type is used
 
-test_that("Plot should use geom_bar as the mark", {
+testthat::test_that("Plot should use geom_bar as the mark", {
   age_plot <- plot_hist_by_cond("2021-01-01", "2021-12-31", "Age")
   region_plot <- plot_hist_by_cond("2021-01-01", "2021-12-31", "Region")
   expect_true("GeomBar" %in% c(class(age_plot$layers[[1]]$geom)))
   expect_true("GeomRect" %in% c(class(region_plot$layers[[1]]$geom)))
 })
 
-test_that("Plot should use correct y variable.", {
+testthat::test_that("Plot should use correct y variable.", {
   age_plot <- plot_hist_by_cond("2021-01-01", "2021-12-31", "Age")
   region_plot <- plot_hist_by_cond("2021-01-01", "2021-12-31", "Region")
   expect_true(rlang::get_expr(age_plot$mapping$y)
@@ -46,7 +44,7 @@ test_that("Plot should use correct y variable.", {
 
 #' Check if the correct plot labels and titles are used
 
-test_that("Correct plot labels should be used", {
+testthat::test_that("Correct plot labels should be used", {
   age_plot <- plot_hist_by_cond("2021-01-01", "2021-12-31", "Age")
   region_plot <- plot_hist_by_cond("2021-01-01", "2021-12-31", "Region")
   expect_true(age_plot$labels$x == "Number of Cases")
@@ -55,7 +53,7 @@ test_that("Correct plot labels should be used", {
   expect_true(region_plot$labels$y == "Region")
 })
 
-test_that("Correct plot titles should be used", {
+testthat::test_that("Correct plot titles should be used", {
   age_plot <- plot_hist_by_cond("2021-01-01", "2021-12-31", "Age")
   region_plot <- plot_hist_by_cond("2021-01-01", "2021-12-31", "Region")
   expect_true(age_plot$labels$title == "Number of Cases by Age Group")
