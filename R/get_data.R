@@ -40,7 +40,8 @@ get_data <- function(
   downloader::download(url, out_path, mode = "wb")
   cases_df <- readr::read_csv(
     here::here(out_folder, "case_data.csv"),
-    show_col_types = FALSE)
+    show_col_types = FALSE,
+    lazy=FALSE)
 
   unlink(here::here(out_folder), recursive = TRUE)
 
