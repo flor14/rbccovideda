@@ -20,6 +20,7 @@ Imports:
     lubridate,
     RCurl,
     readr,
+    rlang,
     scales,
     sjmisc,
     testthat,
