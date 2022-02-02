@@ -1,3 +1,5 @@
+#' Plot histogram of Covid19 cases
+#'
 #' Plots the number of Covid19 cases with respect to the condition(per Age Group
 #' or Region) using histogram for the period specified by startDate and endDate
 #'

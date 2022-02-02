@@ -3,9 +3,9 @@ Title: EDA Analysis for BC COVID19 data
 Version: 1.0.0
 Authors@R: c(
     person("Lianna", "Hovhannisyan", email="liannahovhannisyan11@gmail.com", role = c("aut", "cre")),
-    person("John", "Lee", email="john.ws.lee@gmail.com", role = c("aut", "cre")),
-    person("Vadim", "Taskaev", email="vadim.taskaev@outlook.com", role = c("aut", "cre")),
-    person("Vanessa", "Yuen", email="imtvwy@gmail.com", role = c("aut", "cre"))
+    person("John", "Lee", email="john.ws.lee@gmail.com", role = c("aut")),
+    person("Vadim", "Taskaev", email="vadim.taskaev@outlook.com", role = c("aut")),
+    person("Vanessa", "Yuen", email="imtvwy@gmail.com", role = c("aut"))
     )
 Description: Convenience functions to make the COVID19 Data analysis for British Columbia, CA region.
 License: MIT + file LICENSE

@@ -2,8 +2,7 @@
 % Please edit documentation in R/plot_hist_by_cond.R
 \name{plot_hist_by_cond}
 \alias{plot_hist_by_cond}
-\title{Plots the number of Covid19 cases with respect to the condition(per Age Group
-or Region) using histogram for the period specified by startDate and endDate}
+\title{Plot histogram of Covid19 cases}
 \usage{
 plot_hist_by_cond(startDate, endDate, condition)
 }

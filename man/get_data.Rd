@@ -2,9 +2,7 @@
 % Please edit documentation in R/get_data.R
 \name{get_data}
 \alias{get_data}
-\title{Downloads detailed COVID-19 case data from default BCCDC webpage URL
-(passed in as string) as a .csv file to default relative path directory
-(also passed in as string).}
+\title{Download and save Covid19 data}
 \usage{
 get_data(
   url = paste0("http://www.bccdc.ca/Health-Info-Site/",
