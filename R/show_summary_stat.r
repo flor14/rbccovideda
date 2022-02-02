@@ -103,16 +103,16 @@ show_summary_stat <- function(startDate, endDate) {
     dplyr::summarize(count = dplyr::n())
 
   # max_region, max_region_count
-  max_region <- max(df_by_region$count)
+  max_region_count <- max(df_by_region$count)
   index <- which.max(df_by_region$count)
-  max_region_count <- df_by_region |>
+  max_region <- df_by_region |>
     dplyr::slice(index) |>
     dplyr::pull(HA)
 
   # min_region, min_region_count
-  min_region <- min(df_by_region$count)
+  min_region_count <- min(df_by_region$count)
   index <- which.min(df_by_region$count)
-  min_region_count <- df_by_region |>
+  min_region <- df_by_region |>
     dplyr::slice(index) |>
     dplyr::pull(HA)
 
