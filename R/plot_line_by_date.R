@@ -1,4 +1,4 @@
-#' Line plot of Covid19 cases
+#' Plot line chart of Covid19 cases
 #'
 #' Plots the line chart of regional Covid19 cases over the period specified by
 #' startDate and endDate (format: YYYY-MM-DD). The default argument value

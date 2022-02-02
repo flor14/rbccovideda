@@ -1,3 +1,5 @@
+#' Download and save Covid19 data
+#'
 #' Downloads detailed COVID-19 case data from default BCCDC webpage URL
 #'   (passed in as string) as a .csv file to default relative path directory
 #'   (also passed in as string).

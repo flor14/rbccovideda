@@ -1,4 +1,4 @@
-#' Show summary statistics of BC covid data
+#' Show summary statistics of Covid19 cases
 #'
 #' Show summary statistics for the Covid19 cases in BC
 #'   for the period specified by startDate and endDate (format: YYYY-MM-DD).

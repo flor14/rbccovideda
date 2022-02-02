@@ -69,8 +69,77 @@ devtools::install_github("UBC-MDS/rbccovideda")
 
 ## Usage
 
+`rbccovideda` can be used to download and compute summary statistics,
+generate exploratory data analysis histogram plots, and plot time series
+chart data as follows:
 
-## Role within R Ecosystem
+``` r
+## load library
+library(rbccovideda)
+library(dplyr, warn.conflicts = FALSE)
+```
+
+To download and save data from BCCDC, use `get_data()`
+
+``` r
+all_data <- get_data()
+head(all_data)
+#> # A tibble: 6 x 5
+#>   Reported_Date HA                Sex   Age_Group Classification_Reported
+#>   <date>        <chr>             <chr> <chr>     <chr>                  
+#> 1 2020-01-29    Out of Canada     M     40-49     Lab-diagnosed          
+#> 2 2020-02-06    Vancouver Coastal F     50-59     Lab-diagnosed          
+#> 3 2020-02-10    Out of Canada     F     20-29     Lab-diagnosed          
+#> 4 2020-02-10    Out of Canada     M     30-39     Lab-diagnosed          
+#> 5 2020-02-18    Interior          F     30-39     Lab-diagnosed          
+#> 6 2020-02-24    Fraser            M     40-49     Lab-diagnosed
+```
+
+To generate summary statistics, call
+`show_summary_stat(startDate, endDate)`
+
+``` r
+summary <- show_summary_stat("2022-01-01", "2022-01-31")
+# to show the 15-columns tibble in a nice way
+glimpse(summary)
+#> Rows: 1
+#> Columns: 15
+#> $ total_cases_count        <int> 325851
+#> $ latest_date              <date> 2022-01-31
+#> $ latest_daily_cases_count <int> 1050
+#> $ max_date                 <date> 2021-12-31
+#> $ max_daily_cases_count    <int> 4078
+#> $ min_date                 <date> 2020-01-29
+#> $ min_daily_cases_count    <int> 1
+#> $ max_age_group            <chr> "20-29"
+#> $ max_age_group_count      <int> 67088
+#> $ min_age_group            <chr> "Unknown"
+#> $ min_age_group_count      <int> 89
+#> $ max_region               <chr> "Fraser"
+#> $ max_region_count         <int> 151762
+#> $ min_region               <chr> "Out of Canada"
+#> $ min_region_count         <int> 355
+```
+
+To plot a histogram by Age, use
+`plot_hist_by_cond("2021-01-01", "2021-12-31", "Age")`
+
+``` r
+plot_hist_by_cond("2021-01-01", "2021-01-30", "Age")
+```
+
+<img src="man/figures/README-unnamed-chunk-4-1.png" width="80%" />
+
+To plot a time-series line chart, use
+`plot_line_by_date(startDate, endDate)`
+
+``` r
+plot_line_by_date("2021-01-01", "2021-01-30")
+```
+
+<img src="man/figures/README-unnamed-chunk-5-1.png" width="80%" />
+
+## **Role within R Ecosystem**
 
 Given the relatively adequate accessibility of latest aggregate COVID-19
 data combined with its persistent impact on socio-economics since early

@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot_line_by_date.R
 \name{plot_line_by_date}
 \alias{plot_line_by_date}
-\title{Line plot of Covid19 cases}
+\title{Plot line chart of Covid19 cases}
 \usage{
 plot_line_by_date(startDate, endDate, region = "all")
 }

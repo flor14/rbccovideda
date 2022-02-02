@@ -2,7 +2,7 @@
 % Please edit documentation in R/show_summary_stat.r
 \name{show_summary_stat}
 \alias{show_summary_stat}
-\title{Show summary statistics of BC covid data}
+\title{Show summary statistics of Covid19 cases}
 \usage{
 show_summary_stat(startDate, endDate)
 }
