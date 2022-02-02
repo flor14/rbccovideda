@@ -27,3 +27,7 @@ Imports:
     tibble,
     tidyverse
 Config/testthat/edition: 3
+Suggests: 
+    rmarkdown,
+    knitr
+VignetteBuilder: knitr

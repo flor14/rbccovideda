@@ -1,0 +1,157 @@
+---
+title: "Introduction to rbccovideda"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{rbccovideda-vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.width = 8,
+  fig.asp = 0.8,
+  out.width = "80%"
+)
+
+```
+
+The `rbccovideda` package provides an easy way for users to access and make plots of the covid data from the British Columbia Center of Disease Control, BCCDC.
+
+-   It provides function to download and save data from BCCDC website to a local folder.
+
+-   It shows the summary statistics of the BC covid data within the specified date range.
+
+-   Only a single function call is needed to generate visual plot for data within the specified date range and the specified condition.
+
+-   The functions in this package are designed to be independent so that you can call only the one which suit your needs.
+
+-   A copy of raw data is downloaded in each function call.
+
+This document introduces you how to use the `rbccovideda` package in several steps.
+
+We will start by loading the library:
+
+```{r setup}
+## load library
+library(rbccovideda)
+library(dplyr, warn.conflicts = FALSE)
+
+```
+
+# Download Data
+
+`get_data()` downloads all available covid data (in CSV format) directly from the BCCDC website. It saves a copy of the CSV file in the /project_root/data directory. The directory will be created if it does not exist. The function returns a tibble storing the data in 5 columns.
+
+For example, we can get all available data and save into a tibble like this:
+
+```{r}
+all_data <- get_data()
+```
+
+```{r}
+head(all_data)
+```
+
+# Show Summary Statistics
+
+`show_summary_stat` generates the summary statistics of the data and returns as a dataframe.
+
+This function requires two input parameters `startDate` and `endDate` for specifying the date range of data interested. `startDate` and `endDate` are strings with date format in `YYYY-MM-DD.`
+
+For example, to show the summary statistics of covid data in January 2022,
+
+```{r}
+## Show summary statistics for 2022 January
+summary <- show_summary_stat("2022-01-01", "2022-01-31")
+
+
+```
+
+Note the output is a tibble of dimension 1x15.
+
+```{r}
+print("Dimension of the output : ")
+print(dim(summary))
+
+# to show the 15-columns tibble in a nice way
+glimpse(summary)
+```
+
+Here is a summary of each column in the output tibble:
+
++--------------------------+-------------------------------------------------------------------------------------------+
+| Column Name              | Description                                                                               |
++==========================+===========================================================================================+
+| total_cases_count        | Total number of cases in the specified date range                                         |
++--------------------------+-------------------------------------------------------------------------------------------+
+| latest_date              | The latest date with reported cases, within the specified date range                      |
++--------------------------+-------------------------------------------------------------------------------------------+
+| latest_daily_cases_count | Number of cases reported in the latest_date                                               |
++--------------------------+-------------------------------------------------------------------------------------------+
+| max_date                 | The date with the maximum number of daily reported cases, within the specified date range |
++--------------------------+-------------------------------------------------------------------------------------------+
+| max_daily_cases_count    | Number of cases reported in the max_date                                                  |
++--------------------------+-------------------------------------------------------------------------------------------+
+| min_date                 | The date with the minimum number of daily reported cases, within the specified date range |
++--------------------------+-------------------------------------------------------------------------------------------+
+| min_daily_cases_count    | Number of cases reported in the min_date                                                  |
++--------------------------+-------------------------------------------------------------------------------------------+
+| max_age_group            | The age group with the maximum number of reported cases, within the specified date range  |
++--------------------------+-------------------------------------------------------------------------------------------+
+| max_age_group_count      | Number of cases reported for the max_age_group                                            |
++--------------------------+-------------------------------------------------------------------------------------------+
+| min_age_group            | The age group with the minimum number of reported cases, within the specified date range  |
++--------------------------+-------------------------------------------------------------------------------------------+
+| min_age_group_count      | Number of cases reported for the min_age_group                                            |
++--------------------------+-------------------------------------------------------------------------------------------+
+| max_region               | The region with the maximum number of reported cases, within the specified date range     |
++--------------------------+-------------------------------------------------------------------------------------------+
+| max_region_count         | Number of cases reported for the max_region                                               |
++--------------------------+-------------------------------------------------------------------------------------------+
+| min_region               | The region with the minimum number of reported cases, within the specified date range     |
++--------------------------+-------------------------------------------------------------------------------------------+
+| min_region_count         | Number of cases reported for the min_region                                               |
++--------------------------+-------------------------------------------------------------------------------------------+
+
+# Plot Histogram by Condition
+
+The code below shows how to create a histogram with `plot_his_by_cond`.
+
+This function requires three input parameters. `startDate` and `endDate` for specifying the date range. `startDate` and `endDate` are strings with date format in `YYYY-MM-DD.` The `condition` parameter should be either `Age` or `Region`.
+
+For example, to create a histogram of covid cases in 2021 by Age.
+
+```{r}
+## Plot histogram by Region for all covid cases in 2021
+plot_hist_by_cond("2021-01-01", "2021-12-31", "Age")
+```
+
+Or to create a histogram of covid cases in 2021 by Region.
+
+```{r}
+## Plot histogram by Region for all covid cases in 2021
+plot_hist_by_cond("2021-01-01", "2021-12-31", "Region")
+```
+
+# Plot Line Chart by Date
+
+We can also plot a time series line chart easily with the function `plot_line_by_date`.
+
+Similarly, this function requires two mandatory input parameters. `startDate` and `endDate` for specifying the date range. `startDate` and `endDate` are strings with date format in `YYYY-MM-DD.` An optional parameter `region`, in the form of vector, can be specified to filter the data by regions.
+
+If `region` is not specified, data of all region is included in the plot.
+
+```{r}
+## Plot line chart for all covid cases by region in 2021
+plot_line_by_date("2021-01-01", "2021-12-31")
+```
+
+We can specify a list of regions to be included in the plot, by specifying in the `region` parameter.
+
+```{r}
+## Plot line chart for all covid cases in 2021, for Fraser and Vancouver Coastal only
+plot_line_by_date("2021-01-01", "2021-12-31", c("Fraser", "Vancouver Coastal"))
+```
