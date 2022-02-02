@@ -37,9 +37,9 @@ testthat::test_that("Plot should use correct y variable.", {
   age_plot <- plot_hist_by_cond("2021-01-01", "2021-12-31", "Age")
   region_plot <- plot_hist_by_cond("2021-01-01", "2021-12-31", "Region")
   expect_true(rlang::get_expr(age_plot$mapping$y)
-              == "factor(Age_Group, level = rev(age_order))")
+              == "factor(Age_Group, levels = rev(age_order))")
   expect_true(rlang::get_expr(region_plot$mapping$y)
-              == "factor(HA, level = rev(region_order))")
+              == "factor(HA, levels = rev(region_order))")
 })
 
 #' Check if the correct plot labels and titles are used

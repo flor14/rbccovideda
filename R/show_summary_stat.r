@@ -16,7 +16,9 @@
 #' @examples
 #' show_summary_stat("2022-01-01", "2022-01-13")
 show_summary_stat <- function(startDate, endDate) {
-  # Constant
+
+  Reported_Date <- Age_Group <- HA <- NULL
+    # Constant
   earliest_date_value = "2020-01-29"
 
   # Input Validation

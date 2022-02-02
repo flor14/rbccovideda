@@ -15,6 +15,8 @@
 #' plot_hist_by_cond("2021-01-01", "2021-12-31", "Region")
 plot_hist_by_cond <- function(startDate, endDate, condition) {
 
+  Reported_Date <- Age_Group <- HA <- NULL
+
   `%!in%` <- Negate(`%in%`)
 
   # test input type
@@ -56,7 +58,7 @@ plot_hist_by_cond <- function(startDate, endDate, condition) {
   if (condition == "Age") {
     plot <- temp |>
       ggplot2::ggplot() +
-      ggplot2::aes(y = factor(Age_Group, level = rev(age_order))) +
+      ggplot2::aes(y = factor(Age_Group, levels = rev(age_order))) +
       ggplot2::geom_bar(stat = 'count') +
       ggplot2::ggtitle("Number of Cases by Age Group") +
       ggplot2::labs(x = "Number of Cases",
@@ -67,7 +69,7 @@ plot_hist_by_cond <- function(startDate, endDate, condition) {
   if (condition == "Region") {
     plot <- temp |>
       ggplot2::ggplot() +
-      ggplot2::aes(y = factor(HA, level = rev(region_order))) +
+      ggplot2::aes(y = factor(HA, levels = rev(region_order))) +
       ggplot2::geom_bar(stat = 'count') +
       ggplot2::ggtitle("Number of Cases by Region") +
       ggplot2::labs(x = "Number of Cases",
