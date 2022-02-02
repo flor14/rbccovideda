@@ -18,6 +18,7 @@ knitr::opts_chunk$set(
 
 ```
 
+
 The `rbccovideda` package provides an easy way for users to access and make plots of the covid data from the British Columbia Center of Disease Control, BCCDC.
 
 -   It provides function to download and save data from BCCDC website to a local folder.
