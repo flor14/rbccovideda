@@ -4,6 +4,9 @@
 # rbccovideda
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/UBC-MDS/rbccovideda/workflows/R-CMD-check/badge.svg)](https://github.com/UBC-MDS/rbccovideda/actions)
+[![codecov](https://codecov.io/gh/UBC-MDS/rbccovideda/branch/master/graph/badge.svg?token=BHMAm2mkUK)](https://codecov.io/gh/UBC-MDS/rbccovideda)
 <!-- badges: end -->
 
 **Authors**: Lianna Hovhannisyan, John Lee, Vadim Taskaev, Vanessa Yuen
@@ -84,7 +87,7 @@ To download and save data from BCCDC, use `get_data()`
 ``` r
 all_data <- get_data()
 head(all_data)
-#> # A tibble: 6 x 5
+#> # A tibble: 6 × 5
 #>   Reported_Date HA                Sex   Age_Group Classification_Reported
 #>   <date>        <chr>             <chr> <chr>     <chr>                  
 #> 1 2020-01-29    Out of Canada     M     40-49     Lab-diagnosed          
@@ -104,21 +107,21 @@ summary <- show_summary_stat("2022-01-01", "2022-01-31")
 glimpse(summary)
 #> Rows: 1
 #> Columns: 15
-#> $ total_cases_count        <int> 325851
-#> $ latest_date              <date> 2022-01-31
-#> $ latest_daily_cases_count <int> 1050
+#> $ total_cases_count        <int> 327625
+#> $ latest_date              <date> 2022-02-01
+#> $ latest_daily_cases_count <int> 1695
 #> $ max_date                 <date> 2021-12-31
 #> $ max_daily_cases_count    <int> 4078
 #> $ min_date                 <date> 2020-01-29
 #> $ min_daily_cases_count    <int> 1
 #> $ max_age_group            <chr> "20-29"
-#> $ max_age_group_count      <int> 67088
+#> $ max_age_group_count      <int> 67347
 #> $ min_age_group            <chr> "Unknown"
-#> $ min_age_group_count      <int> 89
+#> $ min_age_group_count      <int> 90
 #> $ max_region               <chr> "Fraser"
-#> $ max_region_count         <int> 151762
+#> $ max_region_count         <int> 152269
 #> $ min_region               <chr> "Out of Canada"
-#> $ min_region_count         <int> 355
+#> $ min_region_count         <int> 353
 ```
 
 To plot a histogram by Age, use
