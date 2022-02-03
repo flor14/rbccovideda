@@ -19,6 +19,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![codecov](https://codecov.io/gh/UBC-MDS/rbccovideda/branch/master/graph/badge.svg?token=BHMAm2mkUK)](https://codecov.io/gh/UBC-MDS/rbccovideda)
+[![R-CMD-check](https://github.com/UBC-MDS/rbccovideda/workflows/R-CMD-check/badge.svg)](https://github.com/UBC-MDS/rbccovideda/actions)
 <!-- badges: end -->
 
 **Authors**: Lianna Hovhannisyan, John Lee, Vadim Taskaev, Vanessa Yuen
